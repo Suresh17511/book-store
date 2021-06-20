@@ -1,0 +1,423 @@
+@import '../../Styles/mixins';
+@import '../../Styles/variables';
+.library {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  // color:#2e2d2d;
+  // left container
+  .left__container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 20%;
+    @include mQ(600px) {
+      display: none;
+    }
+    @include mQ(1024px, 600px) {
+      position: relative;
+      margin-top: 40px;
+    }
+    .container {
+      position: absolute;
+      right: 0;
+      width: 1.6px;
+      background-color: $borders;
+      height: 100%;
+    }
+    .left__box {
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      left: 0;
+      .left_top,
+      .left_bottom {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        h1 {
+          font-size: $fontSizeTwo;
+          font-weight: 600;
+        }
+        .books_available {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          .options {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            h3 {
+              font-size: $fontSizeThree;
+              font-weight: 500;
+            }
+          }
+          .total__books,
+          .dark_mode {
+            p {
+              font-size: $fontSizeThree;
+              font-weight: 500;
+              position: relative;
+              padding: 5px;
+              border-radius: 5px;
+              display: flex;
+              align-items: right;
+            }
+          }
+        }
+      }
+    }
+  }
+  // right container
+  .right__container {
+    width: 80%;
+    @include mQ(600px) {
+      width: 100%;
+    }
+    // app bar
+    .appBar_container {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      .app__bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1.6px solid $borders;
+        @include mQ(600px) {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .appBar__left {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          margin: 10px 10px;
+          justify-content: space-between;
+          .appBar__title {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            h1 {
+              font-size: 1.5vw;
+              margin-right: 10px;
+              @include mQ(600px) {
+                font-size: 5vw;
+                font-weight: 600;
+              }
+            }
+          }
+          .appBar__views {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            span,
+            .grid {
+              i {
+                margin-left: 10px;
+                margin-right: 0px;
+                padding: 8px 8px;
+                border-radius: 5px;
+                cursor: pointer;
+                flex-grow: 1;
+                &:hover {
+                  background-color: $hover;
+                }
+              }
+            }
+          }
+        }
+        .appBar__right {
+          display: flex;
+          align-items: center;
+          .search-box {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid $borders;
+            margin: 0px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include mQ(600px) {
+              margin: 15px 0px;
+
+              .search-text {
+                width: 250px;
+              }
+            }
+            .search-text {
+              width: 240px;
+              border: none;
+              outline: none;
+              float: left;
+              padding: 0;
+              padding-left: 10px;
+              font-size: 16px;
+              line-height: 30px;
+              &:focus + .search-btn {
+                background: #fff;
+              }
+
+              @include mQ(600px) {
+                padding-left: 5px;
+                line-height: 40px;
+                display: flex;
+                justify-content: center;
+              }
+            }
+            .search-btn {
+              float: right;
+              width: 30px;
+              height: 30px;
+              overflow: hidden;
+              border-radius: 0px 5px 5px 0px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+              text-decoration: none;
+              border: none;
+              @include mQ(600px) {
+                width: 40px;
+                height: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .cir_prog {
+      position: absolute;
+      left: 25%;
+      top: 20%;
+    }
+    // books container
+
+    .books__container {
+      .views {
+        .container {
+          padding: 15px;
+          justify-content: space-between;
+          @include mQ(600px) {
+            padding: 10px 0px;
+            align-items: center;
+            justify-content: center;
+            padding-top: 170px;
+          }
+          @include mQ(1024px, 600px) {
+            padding-top: 70px;
+          }
+          .books_block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            @include mQ(600px) {
+              justify-content: center;
+            }
+          }
+          .img__container {
+            position: relative;
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 6px -6px black;
+            img {
+              height: 300px;
+              @include mQ(600px) {
+                min-width: 300px;
+                max-width: 600px;
+                min-height: 380px;
+                max-height: 800px;
+              }
+            }
+            .book_genre {
+              padding: 5px 8px;
+              color: white;
+              position: absolute;
+              right: 5px;
+              bottom: 5px;
+              border-radius: 15px;
+              background-color: rgba(0, 0, 0, 0.6);
+              font-size: 1vw;
+              @include mQ(600px) {
+                font-size: 4.5vw;
+              }
+            }
+          }
+        }
+        .list_container {
+          padding: 25px;
+          @include mQ(600px) {
+            padding: 3px;
+            padding-top: 160px;
+          }
+          @include mQ(1024px, 600px) {
+            padding-top: 60px;
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+
+            .library_header,
+            th {
+              .book_details {
+                text-align: left;
+              }
+              text-align: center;
+              padding: 20px;
+              font-size: 1vw;
+              color: rgb(133, 128, 128);
+              font-weight: lighter;
+              @include mQ(600px) {
+                font-size: 3vw;
+              }
+            }
+            .reading_progress,
+            .last_read {
+              text-align: center;
+              font-size: 1vw;
+              @include mQ(600px) {
+                font-size: 3vw;
+              }
+            }
+            .genre {
+              font-size: 1vw;
+              text-align: center;
+              @include mQ(600px) {
+                font-size: 3vw;
+              }
+            }
+            .book__details {
+              display: flex;
+              flex-wrap: wrap;
+              img {
+                height: 80px;
+                border-radius: 5px;
+                margin: 10px 10px 10px 0px;
+                @include mQ(600px) {
+                  height: 80px;
+                  margin: 0px;
+                }
+              }
+              .author_details {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                h6 {
+                  font-size: 1vw;
+                  padding: 0px;
+                  margin: 0%;
+                  font-weight: 500;
+                  @include mQ(600px) {
+                    font-size: 3vw;
+                    align-self: flex-start;
+                  }
+                }
+                p {
+                  font-size: 0.8vw;
+                  padding: 0px;
+                  margin: 0%;
+                  align-self: flex-end;
+                  @include mQ(600px) {
+                    font-size: 3vw;
+                    align-self: flex-end;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//styles for modal
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+.modal {
+  position: fixed;
+  width: 350px;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  background-color: #fff;
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include mQ(600px) {
+    padding: 0;
+    width: 100%;
+    left: 0;
+    transform: translate(0%, 20%);
+    font-size: 5vw;
+  }
+
+  span {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: rgb(80, 78, 78);
+    cursor: pointer;
+  }
+  .img__container {
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    img {
+      height: 100%;
+    }
+  }
+  h2 {
+    font-size: 1.2vw;
+    font-weight: 700;
+    text-align: justify;
+    @include mQ(600px) {
+      font-size: 5vw;
+      text-align: center;
+    }
+  }
+  .authors {
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    p {
+      padding: 0px;
+      margin: 0;
+      font-size: 1vw;
+      @include mQ(600px) {
+        font-size: 5vw;
+      }
+    }
+  }
+  h6 {
+    text-align: justify;
+    font-weight: 500;
+    font-size: 1vw;
+    @include mQ(600px) {
+      font-size: 3vw;
+      margin: 5px;
+    }
+  }
+}
