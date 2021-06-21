@@ -21,7 +21,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) and (min-width: 600px) {
+@media screen and (max-width: 960px) and (min-width: 600px) {
   .library .left__container {
     position: relative;
     margin-top: 40px;
