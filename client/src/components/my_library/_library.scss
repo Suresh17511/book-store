@@ -14,7 +14,7 @@
     @include mQ(600px) {
       display: none;
     }
-    @include mQ(1024px, 600px) {
+    @include mQ(960px, 600px) {
       position: relative;
       margin-top: 40px;
     }
